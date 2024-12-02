@@ -21,6 +21,10 @@ export function AppContextProvider({ children }) {
   useEffect(() => {
 	
 
+		
+
+		fetchVerify().then(user => setAuth(user));
+
 		const ws = WS();
 		ws.addEventListener("message", e => {
 			const msg = JSON.parse(e.data);
@@ -28,9 +32,6 @@ export function AppContextProvider({ children }) {
 				setNotiCount(msg.count);
 			}
 		});
-
-		fetchVerify().then(user => setAuth(user));
-
 		
 		fetchNotis().then(data =>
 			setNotiCount(data.filter(noti => !noti.read).length)

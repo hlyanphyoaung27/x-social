@@ -2,12 +2,17 @@
 import { useApp } from "@/AppContextProvider";
 import PostCard from "@/components/PostCard";
 import { Button } from "@/components/ui/button";
-import { getPosts, putLike, putUnLike } from "@/lib/fetcher";
+import  { getPosts, putLike, putUnLike } from "@/lib/fetcher";
+
+
 import { useEffect, useState } from "react";
 
 export default function Home () {
     const [ posts , setPosts ] = useState([]);
     const {auth} = useApp();
+
+  console.log(posts)
+   
 
     const like = _id  => {
 		const result = posts.map(post => {

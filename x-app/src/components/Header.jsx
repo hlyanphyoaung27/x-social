@@ -31,6 +31,7 @@ import Home from "@/pages/Home"
 import { ArrowLeft } from "lucide-react"
 import { Separator } from "./ui/separator"
 import { Badge } from "./ui/badge"
+import RegisterUser from "@/lib/fetcher"
 
 
 
@@ -39,7 +40,7 @@ export default function Header() {
 
     const navigate = useNavigate();
     const {pathname} = useLocation()
-    // const {user} = useUser();
+   
 
     const { auth, setAuth, notiCount } = useApp();
     console.log(notiCount)
@@ -77,7 +78,7 @@ export default function Header() {
                 {/* clerk */}
 
                 <SignUpButton>
-                    <Button variant="ghost" className="w-[300px] justify-start ">
+                    <Button onClick={() => RegisterUser()} variant="ghost" className="w-[300px] justify-start ">
                         <Pencil2Icon className="ms-3 h-[25px] w-[25px]" />
                         <span className="ms-5 font-semibold">Register</span>
                     </Button>

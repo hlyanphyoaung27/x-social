@@ -10,7 +10,7 @@ const { clerkClient } = require("@clerk/express");
 
 const { MongoClient, ObjectId } = require("mongodb");
 
-const mongo = new MongoClient("mongodb://localhost");
+const mongo = new MongoClient(process.env.MONGO);
 const db = mongo.db("x");
 
 const number_of_users = 80;
@@ -310,5 +310,12 @@ async function seed() {
 	process.exit(0);
 }
 
+const express = require("express");
+const router = express.Router();
+router.get("/", async(req, res) => {
+	await seed();
+	res.status(200).json({msg: "seeding success"})
+})
 seed();
+
 

@@ -4,9 +4,11 @@ const express = require("express");
 const router = express.Router();
 
 const { MongoClient, ObjectId } = require("mongodb");
+
 const { auth } = require("./users");
 const { clients } = require("./ws");
 const mongo = new  MongoClient(process.env.MONGO);
+mongo.connect().then(() => console.log("Connected to MongoDB")).catch(err => console.error("MongoDB connection error:", err));
 const db = mongo.db("x");
 
 router.get("/",auth, async(req, res) => {

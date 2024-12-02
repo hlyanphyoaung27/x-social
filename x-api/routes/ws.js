@@ -22,9 +22,9 @@ router.ws("/subscribe",(ws, req, res) => {
 			const user = await db.collection("users").findOne({ id: userId })
 			console.log(user)
 
-			ws._id = user._id;
+			ws._id = userId;
 			clients.push(ws);
-			console.log(`Add new client ${user._id}`)
+			console.log(`Add new client ${userId}`)
 		});
 		});
 	});

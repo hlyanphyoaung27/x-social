@@ -7,6 +7,7 @@ await clerk.load();
 const api = import.meta.env.VITE_API;
 const ws  = new WebSocket("ws://localhost:8080/subscribe");
 
+
 ws.addEventListener("open", async () => {
   try {
     const token = await clerk.session.getToken({ template: "x" });
@@ -18,6 +19,8 @@ ws.addEventListener("open", async () => {
     console.error("Error getting token:", error);
   }
 });
+
+
 
 export default  function WS() {
   return ws;
