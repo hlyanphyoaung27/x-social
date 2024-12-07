@@ -5,7 +5,7 @@ const clerk = new Clerk(clerkPubKey);
 await clerk.load();
 
 const api = import.meta.env.VITE_API;
-const ws  = new WebSocket("ws://localhost:8080/subscribe");
+const ws  = new WebSocket(import.meta.env.VITE_WS_URL);
 
 
 ws.addEventListener("open", async () => {

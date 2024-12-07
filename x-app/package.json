@@ -9,6 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "proxy": "https://social-api-796m.onrender.com",
   "dependencies": {
     "@clerk/clerk-js": "^5.12.0",
     "@clerk/clerk-react": "^5.2.8",
